@@ -1,0 +1,27 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: service-voiture
+  datasource:
+    url: jdbc:h2:mem:voituredb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+  h2:
+    console:
+      enabled: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    health-check-url-path: /actuator/health
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 15
